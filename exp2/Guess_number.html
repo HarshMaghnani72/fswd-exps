@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiment 2</title>
+</head>
+
+<body>
+    <h1 id="hello"></h1>
+    <script>
+        var count = 10;
+        var a = parseInt(Math.random()*100);
+        document.write(a);
+        while (count != 0) {
+            var no = parseInt(prompt(("Enter Number:")));
+            if (no == a) {
+                alert("You guessed it correct")
+                break;
+            } else
+            {
+                var msg=no>a?'Number is Greater Hint:-Number Should be less than '+a:'Number is less Hint:-Number Should be greater than'+a;
+                alert("Incorrect no"+msg)
+            }
+            count--;
+        }
+    </script>
+</body>
+
+</html>

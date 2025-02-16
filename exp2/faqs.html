@@ -1,0 +1,98 @@
+<html>
+<head>
+    <title>FAQ Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 50px;
+        }
+        .container {
+            width: 50%;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        h2 {
+            color: #333;
+        }
+        .faq-item {
+            text-align: left;
+            margin-top: 15px;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            cursor: pointer;
+            transition: 0.3s ease-in-out;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        .faq-item:hover {
+            background: #e6f7ff;
+        }
+        .faq-item p {
+            display: none;
+            margin-top: 5px;
+        }
+        .faq-item:hover p {
+            display: block;
+        }
+        .button {
+            padding: 10px 15px;
+            background: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 15px;
+            transition: 0.3s;
+        }
+        .button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Frequently Asked Questions</h2>
+        
+        <div id="faq-list">
+            <div class="faq-item">
+                <h3>What is this page about?</h3>
+                <p>This page dynamically adds FAQs using JavaScript DOM.</p>
+            </div>
+        </div>
+
+        <button class="button" onclick="addFAQ()">Add FAQ</button>
+    </div>
+
+    <script>
+        function addFAQ() {
+            let question = prompt("Enter the FAQ question:");
+            let answer = prompt("Enter the FAQ answer:");
+
+            if (question && answer) {
+                let faqit = document.createElement("div");
+                faqit.classList.add("faq-item");
+
+                let h3 = document.createElement("h3");
+                h3.textContent = question;
+
+                let p = document.createElement("p");
+                p.textContent = answer;
+
+                faqit.appendChild(h3);
+                faqit.appendChild(p);
+
+                document.getElementById("faq-list").appendChild(faqit);
+            } else {
+                alert("Both question and answer are required!");
+            }
+        }
+    </script>
+
+</body>
+</html>

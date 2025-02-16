@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Moving Car</title>
+  <style>
+    #car {
+      position: absolute;
+      top: 50px;
+      left: 50px;
+    }
+  </style>
+</head>
+<body>
+  <img id="car" src="car.jpg" width="500px" height="200px">
+
+  <button onclick="startMoving()">Start Car</button>
+  <button onclick="stopMoving()">Stop Car</button>
+
+  <script>
+    var carPosition = 50;
+    var carInterval;
+
+    function moveCar() {
+      var car = document.getElementById('car');
+      car.style.left = carPosition + 'px';
+      carPosition += 5; 
+      carInterval = setTimeout(moveCar, 10);
+    }
+
+    function startMoving() {
+      carInterval = setTimeout(moveCar, 10);
+    }
+
+    function stopMoving() {
+      clearTimeout(carInterval);
+    }
+  </script>
+</body>
+</html>

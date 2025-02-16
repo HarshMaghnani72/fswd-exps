@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show/Hide Text</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        button {
+            padding: 8px 15px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="toggleBtn" onclick="showhide()">Show Text</button>
+    <p id="text" style="display: none;">This is a simple paragraph that can be shown or hidden.</p>
+
+    <script>
+        let btn = document.getElementById("toggleBtn");
+        let para = document.getElementById("text");
+
+       function showhide() {
+            if (para.style.display === "none") {
+                para.style.display = "block";
+                btn.textContent = "Hide Text"; 
+            } else {
+                para.style.display = "none";
+                btn.textContent = "Show Text"; 
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        input, select, button {
+            margin: 5px;
+            padding: 8px;
+            font-size: 16px;
+        }
+        .result {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Basic Calculator</h2>
+    <input type="number" id="num1" placeholder="Enter Number 1">
+    <input type="number" id="num2" placeholder="Enter Number 2">
+    <select id="operation">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+    <button onclick="calculate()">Calculate</button>
+    <p class="result" id="result"></p>
+
+    <script>
+        function calculate() {
+            let a = parseFloat(document.getElementById("num1").value);
+            let b = parseFloat(document.getElementById("num2").value);
+            let operation = document.getElementById("operation").value;
+            let c;
+
+            if (isNaN(a) || isNaN(b)) {
+                document.getElementById("result").innerHTML = "Please enter valid numbers!";
+                return;
+            }
+
+            switch (operation) {
+                case '+': c = a + b; break;
+                case '-': c = a - b; break;
+                case '*': c = a * b; break;
+                case '/': 
+                    if (b !== 0) {
+                        c = a / b;
+                    } else {
+                        document.getElementById("result").innerHTML = "Cannot divide by zero!";
+                        return;
+                    }
+                    break;
+                default:
+                    document.getElementById("result").innerHTML = "Invalid operation!";
+                    return;
+            }
+
+            document.getElementById("result").innerHTML = `Result: ${c}`;
+        }
+    </script>
+</body>
+
+</html>

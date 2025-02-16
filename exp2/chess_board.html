@@ -1,0 +1,38 @@
+<html>
+
+<body>
+    <table id="chessboard" height="300px" width="300px" border="1px"></table>
+    <script>
+        let table = document.getElementById("chessboard");
+        let row = 1, col = 1;
+
+        function chessbord() {
+            if (row > 8)
+                return;
+            if (col === 1) {
+                var tr = document.createElement("tr");
+                table.appendChild(tr);
+            } else {
+                tr = table.lastElementChild;
+            }
+
+            let td = document.createElement("td");
+            td.style.height = "30px";
+            td.style.width = "30px";
+            td.style.backgroundColor = (row + col) % 2 === 0 ? "#ffffff" : "#000000";
+            tr.appendChild(td);
+
+            col++;
+            if (col > 8) {
+                col = 1;
+                row++;
+            }
+
+            setTimeout(chessbord, 500);
+        }
+
+        chessbord();
+    </script>
+</body>
+
+</html>
